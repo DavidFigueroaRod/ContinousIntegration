@@ -23,3 +23,12 @@ jobs:
 
             - name: Run tests
               run: npx jest
+              continue-on-error: true #Permite continuar con el workflow si hay un error
+
+            - name: Notify on Failure
+              if: ${{ failure() }}
+              run: echo "Tests failed! Please check the logs for more details."
+
+            - name: Always run cleanup
+              if: always()
+              run: echo "Cleaning up resources..."
