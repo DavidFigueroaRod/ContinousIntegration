@@ -21,6 +21,14 @@ jobs:
             - name: Install dependencies
               run: npm install
 
+            - name: Cache Node.js dependencies
+              uses: actions/cache@v3
+              with:
+                  path: node_modules
+                  key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+                  restore-keys: |
+                      ${{ runner.os }}-node-
+
             - name: Run tests
               run: npx jest
               continue-on-error: true #Permite continuar con el workflow si hay un error
