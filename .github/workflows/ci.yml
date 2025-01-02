@@ -29,6 +29,19 @@ jobs:
               if: ${{ failure() }}
               run: echo "Tests failed! Please check the logs for more details."
 
+            - name: Save logs on failure
+              if: ${{ failure()}}
+              run: |
+                  mkdir -p logs
+                  echo "Logs for failed tests" > logs/test-failure.log
+
+            - name: Upload test logs
+              if: ${{ failure() }}
+              uses: actions/upload-artifact@v3
+              with:
+                  name: test-logs
+                  path: logs/
+
             - name: Always run cleanup
               if: always()
               run: echo "Cleaning up resources..."
