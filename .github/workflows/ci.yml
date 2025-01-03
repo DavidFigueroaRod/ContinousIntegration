@@ -50,6 +50,10 @@ jobs:
                   name: test-logs
                   path: logs/
 
+            - name: Notify on Success
+              if: ${{ success() }}
+              run: echo "Tests passed! Yay!"
+
             - name: Always run cleanup
               if: always()
               run: echo "Cleaning up resources..."
