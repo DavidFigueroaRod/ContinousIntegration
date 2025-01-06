@@ -2,7 +2,7 @@ name: CI Workflow
 # comentario
 on:
     push:
-        branches: [ main ]
+        branches: [ main, develop/pruebas ]
     pull_request:
         branches: [ main ]
 
