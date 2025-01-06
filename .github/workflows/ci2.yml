@@ -7,14 +7,30 @@ on:
 jobs:
     test:
         runs-on: ubuntu-latest
+
+        env:
+            APP_ENV: production
+            API_URL: https://api.example.com
+
         steps:
             - name: Checkout code
               uses: actions/checkout@v3
 
-            - name: Run tests
-              run: echo "Tests passed!"
+            - name: Print environment variables
+              run: |
+                  echo "App is running in $APP_ENV environment"
+                  echo "API URL is $API_URL"
 
             - name: Use a secret
               env:
                   MY_SECRET: ${{ secrets.KEY_PRUEBA }}
-              run: echo $MY_SECRET
+              run: |
+                  echo "Secret key is $MY_SECRET"
+
+            - name: Set a dynamic environment variable
+              run: |
+                  echo "API_URL=$API_URL" >> $GITHUB_ENV
+                  echo "Another variable set"
+
+            - name: Print environment variables
+              run: echo "The dynamically set variable is $NEW_VAR"
