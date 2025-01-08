@@ -3,6 +3,7 @@ name: CI Workflow
 # otro comentario bueno, ahora se corrige este comentario
 # comentario desde ubuntu
 # otro comentario desde ubuntu
+#comentario desde main en ubuntu
 on:
     push:
         branches: [ main, develop/pruebas ]
