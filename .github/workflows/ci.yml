@@ -5,6 +5,7 @@ name: CI Workflow
 # otro comentario desde ubuntu
 #comentario desde main en ubuntu
 # bbbbbb
+# comentario para pr
 on:
     push:
         branches: [ main, develop/pruebas ]
