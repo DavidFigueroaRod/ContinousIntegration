@@ -1,0 +1,15 @@
+name: Child Workflow
+
+on:
+    workflow_call:
+        inputs:
+            name:
+                required: true
+                type: string
+
+jobs:
+    say_hello:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Say Hello
+              run: echo "Hello, ${{ inputs.name }} from child workflow"
