@@ -1,0 +1,12 @@
+name: Workflow Padre
+
+on:
+    pull_request: 
+        branches: [main]
+
+
+jobs:
+    call_child_workflow:
+        uses: ./.github/workflows/workflow_hijo.yml
+        with:
+            name: "GitHub Actions"
