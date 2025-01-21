@@ -1,4 +1,5 @@
 # .github/workflows/merge-to-release.yml
+#merge automatico
 name: Merge to Release and Main
 
 on:
