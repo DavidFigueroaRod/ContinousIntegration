@@ -41,7 +41,20 @@ jobs:
           git tag ${{ steps.version.outputs.VERSION }}
           git push origin ${{ steps.version.outputs.VERSION }}
 
-      - name: Create Pull Request from release to main
+      - name: Checkout main branch
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git checkout main
+          git pull origin main
+
+      - name: Merge release into main
+        run: |
+          git merge --no-ff release -m "Syncing release with main"
+          git push origin main || echo "Push to main blocked by branch protection rules"
+
+      - name: Create Pull Request from release to main if push fails
+        if: failure()
         uses: peter-evans/create-pull-request@v5
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
