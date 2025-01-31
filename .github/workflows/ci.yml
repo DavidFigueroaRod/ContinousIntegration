@@ -51,12 +51,12 @@ jobs:
                   mkdir -p logs
                   echo "Logs for failed tests" > logs/test-failure.log
 
-            - name: Upload test logs
-              if: ${{ failure() }}
-              uses: actions/upload-artifact@v3
-              with:
-                  name: test-logs
-                  path: logs/
+            # - name: Upload test logs
+            #   if: ${{ failure() }}
+            #   uses: actions/upload-artifact@v3
+            #   with:
+            #       name: test-logs
+            #       path: logs/
 
             - name: Notify on Success
               if: ${{ success() }}
