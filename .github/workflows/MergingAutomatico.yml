@@ -15,7 +15,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          fetch-depth: 0 #es para poder trackear todas las ramas del repositorio
 
       - name: Set up Git user with PR author details
         run: |
@@ -24,7 +24,7 @@ jobs:
 
       - name: Merge into release
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} #el token es para que se pueda autorizar hacer cambios en las ramas
         run: |
           git checkout release
           git merge --no-ff merge -m "Merging merge into release"
@@ -36,7 +36,7 @@ jobs:
         
       - name: Create tag for new version
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} #en los secrets se guardan variables para que no estén expuestas en el flujo de trabajo
         run: |
           git tag ${{ steps.version.outputs.VERSION }}
           git push origin ${{ steps.version.outputs.VERSION }}
