@@ -8,3 +8,11 @@ test('adds 1 + 2 to equal 3', () => {
 });
 
 // Este es un comentario
+
+function res(a,b) {
+    return a - b;
+}
+
+test('extract 4-2 to equal 2', () => {
+    expect(res(4-2)).toBe(2);
+});
