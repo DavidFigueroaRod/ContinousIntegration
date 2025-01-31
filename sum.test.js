@@ -16,3 +16,5 @@ function res(a,b) {
 test('extract 4-2 to equal 2', () => {
     expect(res(4-2)).toBe(2);
 });
+
+//comentario
