@@ -1,9 +1,5 @@
 name: CI Workflow 2
 
-# comentario de pruebbaaaaas
-# otro comentario
-
-# multiple cambio
 on:
     push:
         branches: [ main ]
