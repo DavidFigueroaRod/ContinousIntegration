@@ -13,8 +13,16 @@ function res(a,b) {
     return a - b;
 }
 
+function div(a,b) {
+    return a / b;
+}
+
 test('extract 4-2 to equal 2', () => {
-    expect(res(4-2)).toBe(2);
+    expect(res(4,2)).toBe(2);
 });
 
 //comentario
+
+test('divide 4-2 to equal 2', () => {
+    expect(div(4,2)).toBe(2);
+});
