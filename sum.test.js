@@ -26,6 +26,3 @@ test('extract 4-2 to equal 2', () => {
 test('divide 4-2 to equal 2', () => {
     expect(div(4,2)).toBe(2);
 });
-
-
-//comentario 
